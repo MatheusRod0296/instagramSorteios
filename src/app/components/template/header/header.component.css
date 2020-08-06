@@ -1,0 +1,41 @@
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #e60575;
+    z-index: 999;
+}
+
+.header a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header span{
+    position: relative; 
+    float: left;
+    width: 50%;
+    padding: 0;
+}
+
+.header .logo{
+    max-height: 70px;
+    /* border-radius: 20px; */
+}
+
+.mat-toolbar {
+    background: #e60575;
+    color: #fff;
+}
+
+
+app-nav{
+    position: relative;
+    float: left;
+    border-width:2px;
+    width:50%;
+    height: auto;
+    left:40%;
+
+}

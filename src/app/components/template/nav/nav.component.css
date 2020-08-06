@@ -1,0 +1,14 @@
+button{
+    color:#e60575;
+    background: black;
+    border: 8px;
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+}
+
+button:focus{
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}

@@ -1,0 +1,70 @@
+.from{
+    
+   
+}
+.form span{
+    height: 25px;
+    margin-top: 25px;
+}
+
+.agrupamento{
+    border: 4px solid #e60575;
+   
+    
+}
+.form span, .agrupamento { 
+    position: relative;
+    float: left;
+   
+    padding: 0;
+    clear: both;
+}
+
+.form input{
+    border: none;
+    height: 25px;
+    box-shadow: none;
+    outline: 0;
+    background: black;
+    color: #fff;
+}
+.input-arroba{   
+    margin: 3px 0 0 10px;
+
+}
+
+.input-arroba, .agrupamento{
+    float: left;
+    position: relative;
+    background: black;
+    color: #fff;
+    
+}
+
+.photoPerfil{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 20px auto;
+    border: 1px solid;
+   
+}
+
+button{
+    float: left;
+    background-color: #e60575;
+    color: #fff;
+    outline: 0;
+    box-shadow: none;
+}
+
+button:hover{
+    background-color: #fff;
+    color:#000;
+}
+
+button:focus{
+    box-shadow: none;
+}
+
