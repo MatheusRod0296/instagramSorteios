@@ -21,7 +21,11 @@ export class InstagramService {
   }
 
   errorHandler(e: any): Observable<any> {
-     this.notificationService.ShowError("Ocorreu um erro!");
+    debugger;
+
+    // var r = JSON.parse(e.error.text.split("window._sharedData = ")[1].split(";</script>")[0]).entry_data.ProfilePage[0].graphql;
+    
+    this.notificationService.ShowError("Ocorreu um erro!");
     return EMPTY;
   }
 }

@@ -48,9 +48,12 @@ export class EscolherInstaComponent implements OnInit {
 
   onKey(event: any) {
     this.readPerfilSubscribe = this.instagramService.read(event)
-      .subscribe(data => {
+      .subscribe(data => {       
+      
         this.imgPerfilUrl = data.graphql.user.profile_pic_url;
-      })
+      });
+     
+      
   }
 
   ngOnDestroy(): void {
