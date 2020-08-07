@@ -20,3 +20,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
     border-top: 1px solid #e60575;
     /* border-bottom: 1px solid #e60575; */
 }
+
+.notify-alert{
+    background: #f3af82dc;
+    color: #000
+}
+.notify-succes{
+    background: #88f090dc;
+    color: #000
+}
+.notify-error{
+    background: #fa0202;
+    color: #ffffff
+}
