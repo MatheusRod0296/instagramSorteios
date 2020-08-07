@@ -13,6 +13,8 @@ import { NavComponent } from './components/template/nav/nav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
+import {MatIconModule} from '@angular/material/icon';
+
 import {MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './Views/home/home.component';
 import { EscolherInstaComponent } from './Views/home/steps/escolher-insta/escolher-insta.component';
@@ -39,7 +41,8 @@ import { CarregarFotosComponent } from './Views/home/steps/carregar-fotos/carreg
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatIconModule
 
   ],
   providers: [],

@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "sorteios-front"
+  "defaultProject": "sorteios-front",
+  "cli": {
+    "analytics": false
+  }
 }
