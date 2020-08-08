@@ -1,0 +1,154 @@
+
+ span{
+    height: 25px;
+    margin-top: 25px;
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0;
+    clear: both;
+}
+
+.photoPerfil{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background: #fff;
+    margin: 20px auto;
+    border: 1px solid;   
+   
+}
+
+.postsImg{
+    height: 100px;
+    width: 100px;
+    position: relative;
+    float: left;
+   
+}
+
+.posts{
+    display: block;
+}
+
+section{
+    align-items: center;
+    display: contents;
+}
+
+.imagem {
+    width: 100px;
+    height: 100px;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    position: relative;
+    /* background-color: rgba(0,0,0,0.5); */
+    /* border: 1px solid red;    */
+    /* margin-right: 10px;
+    margin-bottom: 30px; */
+    /* text-align: center; */
+}
+
+.total-card{
+    width: 150px;
+    /* height: 150px; */
+    background-color: black;
+    border: 2px solid #fff;
+}
+
+.total-card:hover{
+    border: 2px solid #e60575;
+}
+
+.icon-comments{
+    width: 20px;
+    height: 20px;
+}
+
+
+.rowtotal{
+    padding: 0 60px 0 60px;
+}
+
+.box-agrupado{
+    margin: 0 auto;
+}
+
+.card-text{
+    margin-bottom: 5px;
+}
+
+.card-body-text{
+    text-align: center;
+    margin-top: 10px;
+}
+
+input{
+    border: none;
+    height: 25px;
+    
+    outline: 0;
+    background: black;
+    color: #fff;
+}
+
+input:focus{
+    background: #000;
+    color: #fff;
+    outline: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.agrupamento{
+    border: 4px solid #e60575;
+    color:#fff;
+}
+
+.agrupamento button{
+    width: 20%;
+    background: #e60575;;
+    color: #fff;
+    border: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+.agrupamento button:hover{
+    background: #fff;
+    color: #000;
+}
+
+.username{
+    text-align: center;
+    font-size: 12px;
+}
+
+.img-post{
+    height: 185px;
+}
+
+.btn-mais{
+    display: block;
+    margin: 30px auto 50px auto;
+    background: #e60575;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url("../../../../../assets/img/baseline_add_white_18dp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.btn-mais:hover{
+    background: #fff;
+    background-image: url("../../../../../assets/img/baseline_add_black_18dp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

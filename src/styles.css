@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* html, body { height: 100%; } */
+html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: black; color: white;}
 
 .v-middle{
@@ -16,7 +16,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 
 .content{
     margin-top: 100px;
-    height: 300px;
+   
     border-top: 1px solid #e60575;
     /* border-bottom: 1px solid #e60575; */
 }
@@ -32,4 +32,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .notify-error{
     background: #fa0202;
     color: #ffffff
+}
+
+.size{
+    overflow: hidden;
+    margin-bottom: 60px;
 }

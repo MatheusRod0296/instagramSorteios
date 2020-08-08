@@ -11,7 +11,7 @@ export class InstagramService {
 
   constructor(private http: HttpClient,private notificationService: NotificationService) { }
 
-  read(perfilName:string): Observable<any> {
+  GetPerfil(perfilName:string): Observable<any> {
     
     var url = `https://www.instagram.com/${perfilName}/?__a=1`;
     return this.http.get<any>(url).pipe(
@@ -20,11 +20,17 @@ export class InstagramService {
     );
   }
 
-  errorHandler(e: any): Observable<any> {
-    debugger;
+  GetPosts(id:string, quantity:number, hash:string): Observable<any> {
+ 
+     var url = `https://www.instagram.com/graphql/query/?query_id=17888483320059182&variables={"id":${id},"first":${quantity},"after":"${hash}"}`;
+   
+    return this.http.get<any>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
 
-    // var r = JSON.parse(e.error.text.split("window._sharedData = ")[1].split(";</script>")[0]).entry_data.ProfilePage[0].graphql;
-    
+  errorHandler(e: any): Observable<any> {   
     this.notificationService.ShowError("Ocorreu um erro!");
     return EMPTY;
   }

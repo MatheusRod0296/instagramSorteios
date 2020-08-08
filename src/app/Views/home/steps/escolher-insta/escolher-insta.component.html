@@ -1,11 +1,16 @@
 
 <section class="container-fluid form ">    
     <img class="photoPerfil card" src="{{imgPerfilUrl}}"/>
+    <div class="alert-private" *ngIf="isPerfilPrivate">
+        <p>
+            Esta conta é privada, altere sua conta para conseguir gerar o sorteio!
+        </p>
+    </div>
     <span>Digite abaixo o Instagram:</span>
     <div class="input-group mb-3 agrupamento">
         <div class="input-arroba v-middle">@</div>
         <input #movieSearchInput class="form-control" placeholder="My Account">
         
     </div>
-    <button type="button" class="btn  ">Carregar fotos</button>   
+    <button [ngClass]="{'btn-disable': buttonIsdisabled}" (click)="buttonIsdisabled? '' :EscolherPerfil()" type="button" class="btn">Buscar fotos</button>   
 </section>

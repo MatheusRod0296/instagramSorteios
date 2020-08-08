@@ -1,4 +1,6 @@
 
-<div class="content">
-    <app-escolher-insta></app-escolher-insta>
+<div class="content ">
+    <app-escolher-insta *ngIf="step ==1" (jsonDataEmitter)="receberPerfilEscolhido($event)"></app-escolher-insta>
+    <app-carregar-fotos *ngIf="step ==2" [JsonData]="JsonData"></app-carregar-fotos>
+    
 </div>

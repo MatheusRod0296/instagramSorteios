@@ -1,1 +1,37 @@
-<p>carregar-fotos works!</p>
+<section class="container">
+    <img class="photoPerfil card" src="{{imgPerfilUrl}}" />  
+    <p class="username">{{JsonData.username}}</p> 
+
+    <div>
+        <span>Informe o Link da foto: </span>
+        <div class="input-group mb-3 agrupamento">
+            
+            <input  class="form-control" placeholder="https://www.instagram.com/p/B6S2uTJg4vV/">
+            <button> Ok </button>
+            
+        </div>
+       
+
+    </div>
+    <span>Ou</span>
+    <span>Escolha uma Publicação:</span>
+    <div class="row rowtotal ">
+        <div class="box-agrupado" *ngFor="let edge of edges">
+            <div class="card mb-4 box-shadow total-card ">
+                <img class="card-img-top img-post" src="{{edge.node.display_url}}" data-holder-rendered="true">
+                <div class="card-body-text">
+
+                    <p class="card-text">
+                        <img class="icon-comments"
+                            src="../../../../../assets/img/baseline_chat_bubble_outline_white_18dp.png" />
+                        {{edge.node.edge_media_to_comment.count}}</p>
+
+                </div>
+            </div>
+        </div>       
+    </div>
+
+    <div (click)="LoadingPost()" *ngIf="next_page" class="btn-mais">
+      
+    </div>
+</section>

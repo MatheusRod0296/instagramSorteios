@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { InstagramService } from '../../../../components/instagram.service';
 import { NotificationService } from '../../../../components/notification.service';
 import { Subscription, of, Subject, Observable, fromEvent } from 'rxjs';
@@ -14,6 +14,11 @@ import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
 export class EscolherInstaComponent implements OnInit {
 
   imgPerfilUrl = "./../../../../../assets/img/perfilDefault.jpg";
+  buttonIsdisabled =true;
+  isPerfilPrivate = false;
+
+  @Output() jsonDataEmitter = new EventEmitter<any>();
+  jsonData:any;
 
   private readPerfilSubscribe: Subscription;
 
@@ -31,33 +36,46 @@ export class EscolherInstaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    fromEvent(this.movieSearchInput.nativeElement, 'keyup').pipe(
-
-      // get value
+    fromEvent(this.movieSearchInput.nativeElement, 'keyup').pipe(      
       map((event: any) => {
         return event.target.value;
       })      
       , debounceTime(1000)      
       , distinctUntilChanged()
-      // subscription for response
-    ).subscribe((text: string) => this.onKey(text))
+     
+    ).subscribe((text: string) => this.onKey(text));
    
 
-  }
-
-
-  onKey(event: any) {
-    this.readPerfilSubscribe = this.instagramService.read(event)
-      .subscribe(data => {       
-      
-        this.imgPerfilUrl = data.graphql.user.profile_pic_url;
-      });
-     
-      
   }
 
   ngOnDestroy(): void {
     this.readPerfilSubscribe.unsubscribe();
   }
 
+
+
+  onKey(event: any) {
+    this.readPerfilSubscribe = this.instagramService.GetPerfil(event)
+      .subscribe(data => {
+        this.jsonData = data.graphql.user;
+        this.imgPerfilUrl = this.jsonData.profile_pic_url;       
+        this.isPerfilPrivate = this.jsonData.is_private;
+        this.buttonIdDisable();
+      });   
+      
+  }
+
+  EscolherPerfil(){ 
+    this.jsonDataEmitter.emit(this.jsonData);
+  }
+
+  buttonIdDisable(){
+    if(this.jsonData != undefined && !this.isPerfilPrivate){
+      this.buttonIsdisabled = false;
+    }
+  }
+
+ 
+
+ 
 }
