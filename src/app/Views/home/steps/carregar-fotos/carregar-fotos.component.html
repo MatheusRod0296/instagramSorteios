@@ -6,8 +6,8 @@
         <span>Informe o Link da foto: </span>
         <div class="input-group mb-3 agrupamento">
             
-            <input  class="form-control" placeholder="https://www.instagram.com/p/B6S2uTJg4vV/">
-            <button> Ok </button>
+            <input #inputValue  class="form-control" placeholder="https://www.instagram.com/p/B6S2uTJg4vV/">
+            <button (click)="InserirSortCodeByLink(inputValue.value)"> Ok </button>
             
         </div>
        
@@ -17,13 +17,13 @@
     <span>Escolha uma Publicação:</span>
     <div class="row rowtotal ">
         <div class="box-agrupado" *ngFor="let edge of edges">
-            <div class="card mb-4 box-shadow total-card ">
+            <div class="card mb-4 box-shadow total-card" (click)="SelecionarFoto(edge.node.shortcode)">
                 <img class="card-img-top img-post" src="{{edge.node.display_url}}" data-holder-rendered="true">
                 <div class="card-body-text">
 
                     <p class="card-text">
                         <img class="icon-comments"
-                            src="../../../../../assets/img/baseline_chat_bubble_outline_white_18dp.png" />
+                            src="assets/img/baseline_chat_bubble_outline_white_18dp.png" />
                         {{edge.node.edge_media_to_comment.count}}</p>
 
                 </div>

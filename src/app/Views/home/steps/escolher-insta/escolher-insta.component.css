@@ -49,7 +49,7 @@
    
 }
 
-button{
+/* button{
     float: left;
     background-color: #e60575;
     color: #fff;
@@ -57,30 +57,9 @@ button{
     box-shadow: none;
     width: 100%;
     margin-bottom: 10px;
-}
+} */
 
-button:hover{
-    background-color: #fff;
-    color:#000;
-}
 
-button:focus{
-    box-shadow: none;
-}
-
-.btn-disable{
-    background-color: #fdfdfd85;
-}
-
-.btn-disable:hover{
-    background-color: #fdfdfd85;
-    color: #fff;
-    cursor: no-drop;
-}
-
-.btn-able{
-    background-color: #e60575;
-}
 
 .alert-private{
     border: 1px solid red;

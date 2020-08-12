@@ -13,7 +13,7 @@ import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
 })
 export class EscolherInstaComponent implements OnInit {
 
-  imgPerfilUrl = "./../../../../../assets/img/perfilDefault.jpg";
+  imgPerfilUrl = "assets/img/perfilDefault.jpg";
   buttonIsdisabled =true;
   isPerfilPrivate = false;
 

@@ -25,6 +25,7 @@ import { EscolherInstaComponent } from './Views/home/steps/escolher-insta/escolh
 import { CarregarFotosComponent } from './Views/home/steps/carregar-fotos/carregar-fotos.component';
 
 import { MatSnackBarModule } from  '@angular/material/snack-bar';
+import { CarregarComentariosComponent } from './Views/home/steps/carregar-comentarios/carregar-comentarios.component';
 
 
 
@@ -40,7 +41,8 @@ import { MatSnackBarModule } from  '@angular/material/snack-bar';
     NavComponent,
     HomeComponent,
     EscolherInstaComponent,
-    CarregarFotosComponent
+    CarregarFotosComponent,
+    CarregarComentariosComponent
   ],
   imports: [
     BrowserModule,

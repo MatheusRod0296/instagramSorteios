@@ -30,6 +30,15 @@ export class InstagramService {
     );
   }
 
+  GetComments(shortCode:string, quantity:number, hash:string): Observable<any>{
+    var url = `https://www.instagram.com/graphql/query/?query_id=17852405266163336&shortcode=${shortCode}&first=${quantity}&after=${hash}`;
+   
+    return this.http.get<any>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
   errorHandler(e: any): Observable<any> {   
     this.notificationService.ShowError("Ocorreu um erro!");
     return EMPTY;

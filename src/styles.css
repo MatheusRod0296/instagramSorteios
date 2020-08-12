@@ -38,3 +38,37 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
     overflow: hidden;
     margin-bottom: 60px;
 }
+
+.btn-padrao{
+    float: left;
+    background-color: #e60575;
+    color: #fff;
+    outline: 0;
+    box-shadow: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-padrao:hover{
+    background-color: #fff;
+    color:#000;
+}
+
+.btn-padrao:focus{
+    box-shadow: none;
+}
+
+.btn-disable{
+    background-color: #fdfdfd85;
+    opacity: 0.5;
+}
+
+.btn-disable:hover{
+    background-color: #fdfdfd85;
+    color: #fff;
+    cursor: no-drop;
+}
+
+.btn-able{
+    background-color: #e60575;
+}
