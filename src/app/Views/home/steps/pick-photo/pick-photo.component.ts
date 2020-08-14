@@ -1,17 +1,21 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { InstagramService } from 'src/app/components/instagram.service';
+import { InstagramService } from '../../../../components/instagram.service';
 import { NotificationService } from '../../../../components/notification.service';
+import { CommentDTO } from '../../../../components/models/commentDTO';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-carregar-fotos',
-  templateUrl: './carregar-fotos.component.html',
-  styleUrls: ['./carregar-fotos.component.css']
+  selector: 'app-pick-photo',
+  templateUrl: './pick-photo.component.html',
+  styleUrls: ['./pick-photo.component.css']
 })
-export class CarregarFotosComponent implements OnInit {
+export class PickPhotoComponent implements OnInit {
 
   @Input() JsonData: any;
 
-  @Output() ShortCodeEmitter = new EventEmitter<any>();
+  @Output() CommentDTOEmitter = new EventEmitter<CommentDTO>();
+
+  private subscribe: Subscription;
 
   imgPerfilUrl = "assets/img/perfilDefault.jpg";
   edges: any[];
@@ -34,8 +38,7 @@ export class CarregarFotosComponent implements OnInit {
 
 
   LoadingPost() {
-
-    this.instagramService.GetPosts(this.idUser, 50, this.end_cursor)
+    this.subscribe = this.instagramService.getPosts(this.idUser, 50, this.end_cursor)
       .subscribe(data => {
         var user = data.data.user;
         this.end_cursor = user.edge_owner_to_timeline_media.page_info.end_cursor;
@@ -45,25 +48,31 @@ export class CarregarFotosComponent implements OnInit {
         } else {
           Array.prototype.push.apply(this.edges, user.edge_owner_to_timeline_media.edges);
         }
-
       });
   }
 
-  InserirSortCodeByLink(link: string){  
-   debugger;
+  insertSortCodeByLink(link: string){ 
+  
     var shortCode = link.match(/(?:\w|-){11}(?=\/)/);
     if(shortCode == null || shortCode.length != 1 || shortCode[0] == null){
       this.notificationService.ShowError("Url invalida!");
     }else{
-      this.SelecionarFoto(shortCode[0]);
+      this.selectPhoto(shortCode[0]);
     }
 
   }
 
+  selectPhoto(shortCode: string){ 
+    var param = new CommentDTO();
+    param.ShortCode = shortCode;
+    param.UserName = this.JsonData.username;
+    param.ImgUrl = this.JsonData.profile_pic_url
 
+    this.CommentDTOEmitter.emit(param);
+  }
 
-  SelecionarFoto(shortCode: string){   
-    this.ShortCodeEmitter.emit(shortCode);
+  ngOnDestroy(): void {
+    this.subscribe.unsubscribe();
   }
 
 }

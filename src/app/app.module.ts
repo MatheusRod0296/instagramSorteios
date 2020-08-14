@@ -21,11 +21,12 @@ import { MatIconModule } from '@angular/material/icon';
 
 import {MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './Views/home/home.component';
-import { EscolherInstaComponent } from './Views/home/steps/escolher-insta/escolher-insta.component';
-import { CarregarFotosComponent } from './Views/home/steps/carregar-fotos/carregar-fotos.component';
+import { ChooseInstaComponent } from './Views/home/steps/choose-insta/choose-insta.component';
+
 
 import { MatSnackBarModule } from  '@angular/material/snack-bar';
-import { CarregarComentariosComponent } from './Views/home/steps/carregar-comentarios/carregar-comentarios.component';
+import { LoadCommentsComponent } from './Views/home/steps/load-comments/load-comments.component';
+import { PickPhotoComponent } from './Views/home/steps/pick-photo/pick-photo.component';
 
 
 
@@ -40,9 +41,9 @@ import { CarregarComentariosComponent } from './Views/home/steps/carregar-coment
     FooterComponent,
     NavComponent,
     HomeComponent,
-    EscolherInstaComponent,
-    CarregarFotosComponent,
-    CarregarComentariosComponent
+    ChooseInstaComponent,
+    PickPhotoComponent,
+    LoadCommentsComponent
   ],
   imports: [
     BrowserModule,

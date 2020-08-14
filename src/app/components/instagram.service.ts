@@ -9,9 +9,11 @@ import { NotificationService } from './notification.service';
 })
 export class InstagramService {
 
-  constructor(private http: HttpClient,private notificationService: NotificationService) { }
+  constructor(
+    private http: HttpClient,
+    private notificationService: NotificationService) { }
 
-  GetPerfil(perfilName:string): Observable<any> {
+  getPerfil(perfilName:string): Observable<any> {
     
     var url = `https://www.instagram.com/${perfilName}/?__a=1`;
     return this.http.get<any>(url).pipe(
@@ -20,7 +22,7 @@ export class InstagramService {
     );
   }
 
-  GetPosts(id:string, quantity:number, hash:string): Observable<any> {
+  getPosts(id:string, quantity:number, hash:string): Observable<any> {
  
      var url = `https://www.instagram.com/graphql/query/?query_id=17888483320059182&variables={"id":${id},"first":${quantity},"after":"${hash}"}`;
    

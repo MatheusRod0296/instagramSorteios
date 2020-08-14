@@ -1,14 +1,14 @@
 <section class="container">
     <div class="row">
         <div class="area-perfil col-md-2 ">
-            <img class="img-escolhida" src="{{ImgEscolhida}}">
-            <p>@instagram</p>
+            <img class="img-escolhida" src="{{ImgPicked}}">
+            <p>@{{CommentDTO.UserName}}</p>
 
             <div id="accordion">
                 <div class="card">
                   <div class="card-header "  id="headingOne">
                     <h5 class="mb-0">
-                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Configurações
                       </button>
                     </h5>
@@ -29,17 +29,30 @@
         <div class="col-md-10">
             <div class="area-comentarios col-md-12">
                 <div class="">
-                    <span class="col-12"><strong>@NAME</strong>:
-                        comentariosaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-                    <span class="col-12"><strong>@NAME</strong>: comentarios</span>
-                    <span class="col-12"><strong>@NAME</strong>: comentarios</span>
-                    <span class="col-12"><strong>@NAME</strong>: comentarios</span>
-                    <span class="col-12"><strong>@NAME</strong>: comentarios</span>
-
+                    <span  *ngFor="let edge of edges" class="col-12">
+                      <strong>{{edge.node.owner.username}}</strong>: {{edge.node.text}}
+                    </span>
+                   
                 </div>
             </div>
             <button class="btn btn-padrao col-md-12">Sortear</button>
+
+            <div>
+              <h1>Sorteados</h1>
+            </div>
+
+            <div class="area-sorteados"> 
+              <span>1° sorteado</span>
+              <div>
+                <span>@NAME:</span>
+                <span>commentario</span>
+              </div>            
+            </div>
+
+           
         </div>
+
+       
     </div>
 
 

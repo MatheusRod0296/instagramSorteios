@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommentDTO } from '../../components/models/commentDTO';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  JsonData:any;
-
-  ShorCode:string;
+  
+  LoadDataJson:any;
+  
+  CommentDTO:CommentDTO;
 
   step:number = 1;
   constructor() { }
@@ -16,13 +18,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  receberPerfilEscolhido(data:any){  
-    this.JsonData = data;
+  receivePickedPerfil(data:any){  
+    this.LoadDataJson = data;
     this.step =2;
   }
 
-  ReceberShortCode(shortcode:string){
-    this.ShorCode= shortcode;
+  receivePickedPhoto(commentDTO:CommentDTO){
+    this.CommentDTO= commentDTO;
     this.step =3;
   }
 

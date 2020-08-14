@@ -7,18 +7,18 @@ import { debounceTime, map, distinctUntilChanged } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-escolher-insta',
-  templateUrl: './escolher-insta.component.html',
-  styleUrls: ['./escolher-insta.component.css']
+  selector: 'app-choose-insta',
+  templateUrl: './choose-insta.component.html',
+  styleUrls: ['./choose-insta.component.css']
 })
-export class EscolherInstaComponent implements OnInit {
+export class ChooseInstaComponent implements OnInit {
 
   imgPerfilUrl = "assets/img/perfilDefault.jpg";
   buttonIsdisabled =true;
   isPerfilPrivate = false;
-
-  @Output() jsonDataEmitter = new EventEmitter<any>();
   jsonData:any;
+
+  @Output() jsonDataEmitter = new EventEmitter<any>(); 
 
   private readPerfilSubscribe: Subscription;
 
@@ -55,7 +55,7 @@ export class EscolherInstaComponent implements OnInit {
 
 
   onKey(event: any) {
-    this.readPerfilSubscribe = this.instagramService.GetPerfil(event)
+    this.readPerfilSubscribe = this.instagramService.getPerfil(event)
       .subscribe(data => {
         this.jsonData = data.graphql.user;
         this.imgPerfilUrl = this.jsonData.profile_pic_url;       
@@ -65,7 +65,7 @@ export class EscolherInstaComponent implements OnInit {
       
   }
 
-  EscolherPerfil(){ 
+  choosePerfil(){ 
     this.jsonDataEmitter.emit(this.jsonData);
   }
 

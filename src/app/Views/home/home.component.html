@@ -1,6 +1,6 @@
 
 <div class="content ">
-    <!-- <app-escolher-insta *ngIf="step ==1" (jsonDataEmitter)="receberPerfilEscolhido($event)"></app-escolher-insta>
-    <app-carregar-fotos *ngIf="step ==2" (ShortCodeEmitter)="ReceberShortCode($event)" [JsonData]="JsonData"></app-carregar-fotos> -->
-    <app-carregar-comentarios  ></app-carregar-comentarios>    
+    <app-choose-insta *ngIf="step ==1" (jsonDataEmitter)="receivePickedPerfil($event)"></app-choose-insta>
+    <app-pick-photo *ngIf="step ==2" (CommentDTOEmitter)="receivePickedPhoto($event)" [JsonData]="LoadDataJson"></app-pick-photo>
+    <app-load-comments *ngIf="step ==3" [CommentDTO]="CommentDTO" ></app-load-comments>    
 </div>

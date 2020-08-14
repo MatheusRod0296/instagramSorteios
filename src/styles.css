@@ -66,7 +66,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:
 .btn-disable:hover{
     background-color: #fdfdfd85;
     color: #fff;
-    cursor: no-drop;
+    cursor: no-drop !important;
 }
 
 .btn-able{
