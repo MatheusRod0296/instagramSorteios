@@ -106,7 +106,7 @@ export class LoadCommentsComponent implements OnInit {
       this.buttonIsdisabled = false;
     }
 
-    this.progress = +this.progress.toFixed(0);
+    this.progress = +this.progress.toFixed(2);
   }
 
   draw(){
