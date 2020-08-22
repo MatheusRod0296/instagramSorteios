@@ -13,8 +13,4 @@ res.sendFile(path.join(__dirname+'/dist/sorteios-front/index.html'));
 });
 
 // Inicia a aplicação pela porta configurada
-const { PORT=3000, LOCAL_ADDRESS='0.0.0.0' } = process.env
-app.listen(PORT, LOCAL_ADDRESS, () => {
-  const address = server.address();
-  console.log('server listening at', address);
-});
+app.listen(process.env.PORT || 18555);
