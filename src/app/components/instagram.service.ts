@@ -37,12 +37,17 @@ export class InstagramService {
    
     return this.http.get<any>(url).pipe(
       map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
+      catchError((e) => this.alertHandler(e, "a api do instagram esta congestionada, aguarde ..."))
     );
   }
 
   errorHandler(e: any): Observable<any> {   
-    this.notificationService.ShowError("Ocorreu um erro!");
-    return EMPTY;
+    this.notificationService.ShowError("Ocorreu um erro");
+    return Observable.throw(e);
+  }
+
+  alertHandler(e: any, msg: string): Observable<any> {   
+    this.notificationService.ShowAlert(msg);
+    return Observable.throw(e);
   }
 }

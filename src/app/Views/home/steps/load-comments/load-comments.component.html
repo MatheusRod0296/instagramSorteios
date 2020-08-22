@@ -1,59 +1,67 @@
 <section class="container">
-    <div class="row">
-        <div class="area-perfil col-md-2 ">
-            <img class="img-escolhida" src="{{ImgPicked}}">
-            <p>@{{CommentDTO.UserName}}</p>
+  <div class="row">
+    <div class="area-perfil col-md-2 ">
+      <img class="img-escolhida" src="{{ImgPicked}}">
+      <p>@{{CommentDTO.UserName}}</p>
 
-            <div id="accordion">
-                <div class="card">
-                  <div class="card-header "  id="headingOne">
-                    <h5 class="mb-0">
-                      <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Configurações
-                      </button>
-                    </h5>
-                  </div>
-              
-                  <div id="collapseOne" class="collapse hidden" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                      Anim pariatur 
-                    </div>
-                  </div>
-                </div>
-               
-               
-              </div>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header " id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                aria-controls="collapseOne">
+                Configurações
+              </button>
+            </h5>
+          </div>
 
+          <div id="collapseOne" class="collapse hidden" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              Em Construção
+            </div>
+          </div>
         </div>
 
-        <div class="col-md-10">
-            <div class="area-comentarios col-md-12">
-                <div class="">
-                    <span  *ngFor="let edge of edges" class="col-12">
-                      <strong>{{edge.node.owner.username}}</strong>: {{edge.node.text}}
-                    </span>
-                   
-                </div>
-            </div>
-            <button class="btn btn-padrao col-md-12">Sortear</button>
 
-            <div>
-              <h1>Sorteados</h1>
-            </div>
+      </div>
 
-            <div class="area-sorteados"> 
-              <span>1° sorteado</span>
-              <div>
-                <span>@NAME:</span>
-                <span>commentario</span>
-              </div>            
-            </div>
-
-           
-        </div>
-
-       
     </div>
+
+    <div class="col-md-10">
+      <div class="progress-bar-local">
+        <p *ngIf="next_page">Carregando ... ({{progress}}%)</p>
+        <p *ngIf="!next_page">Os comentarios foram carregados ({{progress}}%)</p>
+
+      </div>
+      <div [ngClass]="{'area-comentarios-disabled':buttonIsdisabled }" class="area-comentarios col-md-12">
+        <div class="">
+          <span *ngFor="let edge of edges" class="col-12">
+            <strong>{{edge.node.owner.username}}</strong>: {{edge.node.text}}
+          </span>
+
+        </div>
+      </div>
+      <button [ngClass]="{'btn-disable': buttonIsdisabled,'btn-padrao': !buttonIsdisabled }" (click)="draw()"
+        class="btn col-md-12">Sortear</button>
+
+
+      <div *ngIf="winners.length > 0" class="winners">
+        <h1>Ganhador(es):</h1>
+      </div>
+
+      <div class="area-sorteados" *ngFor="let sorteado of winners.slice().reverse(); let i = index ">
+        <span>{{sorteado.order}}° sorteado</span>
+        <div>
+          <span>@{{sorteado.node.owner.username}}:</span>
+          <span>{{sorteado.node.text}}</span>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
 
 
 </section>

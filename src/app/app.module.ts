@@ -28,6 +28,7 @@ import { MatSnackBarModule } from  '@angular/material/snack-bar';
 import { LoadCommentsComponent } from './Views/home/steps/load-comments/load-comments.component';
 import { PickPhotoComponent } from './Views/home/steps/pick-photo/pick-photo.component';
 
+import { ReversePipe } from './components/Pipes/reversePipe'
 
 
 
@@ -43,7 +44,8 @@ import { PickPhotoComponent } from './Views/home/steps/pick-photo/pick-photo.com
     HomeComponent,
     ChooseInstaComponent,
     PickPhotoComponent,
-    LoadCommentsComponent
+    LoadCommentsComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
