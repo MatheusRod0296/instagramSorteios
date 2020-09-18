@@ -38,6 +38,7 @@ export class LoadCommentsComponent implements OnInit {
     this.winners =  [];
     this.ImgPicked = this.CommentDTO.ImgUrl;
     this.loadingComments()
+    window.scroll(0,100);
   }
 
   ngOnDestroy(): void {
@@ -110,6 +111,8 @@ export class LoadCommentsComponent implements OnInit {
   }
 
   draw(){
+
+    
     if(this.edges.length <=1){
       this.buttonIsdisabled = true;
     }
@@ -129,7 +132,7 @@ export class LoadCommentsComponent implements OnInit {
     }
 
 
-      
+    window.scroll(0,200);
 
   }
 

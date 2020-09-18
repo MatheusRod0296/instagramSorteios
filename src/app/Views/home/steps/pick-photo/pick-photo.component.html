@@ -17,7 +17,7 @@
     <span>Escolha uma Publicação:</span>
     <div class="row rowtotal ">
         <div class="box-agrupado" *ngFor="let edge of edges">
-            <div class="card mb-4 box-shadow total-card" (click)="selectPhoto(edge.node.shortcode)">
+            <div class="card mb-4 box-shadow total-card" (click)="selectPhoto(edge.node.shortcode,edge.node.display_url )">
                 <img class="card-img-top img-post" src="{{edge.node.display_url}}" data-holder-rendered="true">
                 <div class="card-body-text">
 

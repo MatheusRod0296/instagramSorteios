@@ -52,21 +52,26 @@ export class PickPhotoComponent implements OnInit {
   }
 
   insertSortCodeByLink(link: string){ 
-  
+  debugger;
     var shortCode = link.match(/(?:\w|-){11}(?=\/)/);
     if(shortCode == null || shortCode.length != 1 || shortCode[0] == null){
       this.notificationService.ShowError("Url invalida!");
     }else{
-      this.selectPhoto(shortCode[0]);
+      this.subscribe = this.instagramService.getPhotoByShortCode(shortCode[0])
+      .subscribe(data => {
+        this.selectPhoto(shortCode[0], data.graphql.shortcode_media.display_resources[0].src);
+      });
+
+      
     }
 
   }
 
-  selectPhoto(shortCode: string){ 
+  selectPhoto(shortCode: string, urlImg : string){ 
     var param = new CommentDTO();
     param.ShortCode = shortCode;
     param.UserName = this.JsonData.username;
-    param.ImgUrl = this.JsonData.profile_pic_url
+    param.ImgUrl = urlImg;
 
     this.CommentDTOEmitter.emit(param);
   }
