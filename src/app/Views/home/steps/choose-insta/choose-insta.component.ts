@@ -43,8 +43,7 @@ export class ChooseInstaComponent implements OnInit {
       , debounceTime(1000)      
       , distinctUntilChanged()
      
-    ).subscribe((text: string) => this.onKey(text));
-   
+    ).subscribe((text: string) => this.onKey(text));  
 
   }
 
@@ -52,11 +51,10 @@ export class ChooseInstaComponent implements OnInit {
     this.readPerfilSubscribe.unsubscribe();
   }
 
-
-
   onKey(event: any) {
     this.readPerfilSubscribe = this.instagramService.getPerfil(event)
       .subscribe(data => {
+        debugger;
         this.jsonData = data.graphql.user;
         this.imgPerfilUrl = this.jsonData.profile_pic_url;       
         this.isPerfilPrivate = this.jsonData.is_private;
@@ -74,8 +72,4 @@ export class ChooseInstaComponent implements OnInit {
       this.buttonIsdisabled = false;
     }
   }
-
- 
-
- 
 }
