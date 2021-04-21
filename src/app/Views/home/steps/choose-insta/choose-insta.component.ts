@@ -54,13 +54,7 @@ export class ChooseInstaComponent implements OnInit {
 
 
 
-  onKey(event: any) {  
-    this.readPerfilSubscribe = this.instagramService.authorization(event)
-      .subscribe(data => {
-       debugger;
-       
-      });   
-    
+  onKey(event: any) {
     this.readPerfilSubscribe = this.instagramService.getPerfil(event)
       .subscribe(data => {
         this.jsonData = data.graphql.user;
